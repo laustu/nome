@@ -1,0 +1,91 @@
+#define uint8 octet
+#define int32 long
+
+enum Doors {
+    Door_FR_enum,
+    Door_FL_enum,
+    Door_RR_enum,
+    Door_RL_enum,
+    Door_Trunk_enum,
+    Door_Hood_enum
+};
+
+enum DoorLockCmd {
+    LockActvnOff,
+    LockActvnUnlck,
+    LockActvnLock,
+    LockActvnSafe
+};
+
+struct DoorLockMotor {
+    int32 Door;
+    int32 LockCmd;
+    uint8 MotorRunTime;
+};
+
+enum DoorLockState {
+    LockSts_LockStsUkwn,
+    LockSts_Unlckd,
+    LockSts_Lockd,
+    LockSts_SafeLockd
+};
+
+struct DoorLockStates {
+    int32 FR;
+    int32 FL;
+    int32 RR;
+    int32 RL;
+    int32 trunk;
+};
+
+enum DoorMovement {
+    DoorMovement_Open,
+    DoorMovement_Closed,
+    DoorMovement_Moving
+};
+
+//include Type
+struct DoorState {
+    int32 Movement;
+    uint8 Percentage;
+};
+
+struct DoorStates {
+    DoorState FR;
+    DoorState FL;
+    DoorState RR;
+    DoorState RL;
+    DoorState trunk;
+    DoorState hood;
+};
+
+enum UsageMode {
+    Abandoned,
+    Inactive,
+    Convenience,
+    Active,
+    Driving
+};
+
+struct UsageModeType {
+    int32 Mode;
+};
+
+enum GearLvrIndcn {
+    GearLvrIndcn_ParkIndcn,
+    GearLvrIndcn_RvsIndcn,
+    GearLvrIndcn_NeutIndcn,
+    GearLvrIndcn_DrvIndcn,
+    GearLvrIndcn_ManModeIndcn,
+    GearLvrIndcn_Resd1,
+    GearLvrIndcn_Resd2,
+    GearLvrIndcn_Undefd
+};
+
+struct GearIndication {
+    int32 Gear;
+};
+
+struct VechicleSpeed {
+    float VehSpdLgtA;
+};

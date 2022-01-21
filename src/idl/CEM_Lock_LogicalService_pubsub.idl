@@ -1,0 +1,6 @@
+#include <CEM_Lock_AtomicService_pubsub.idl>
+
+struct DoorLockReq {
+    Doors doorIdx;
+    DoorLockCmd lockCmd;
+};
